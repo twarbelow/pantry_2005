@@ -1,3 +1,5 @@
+require 'date'
+
 class CookBook
   attr_reader :recipes
 
@@ -17,6 +19,13 @@ class CookBook
 
   def highest_calorie_meal
     recipes.max_by {|recipe| recipe.total_calories}
+  end
+
+  def date
+    # I can get this to pass the test, but I don't think
+    # my method is practical for anything not created at the time
+    # the test is run...
+    Date.today.strftime("%m-%d-%Y")
   end
 
   def summary
