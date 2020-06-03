@@ -5,4 +5,8 @@ class Pantry
     @stock = {}
   end
 
+  def stock_check(ingredient)
+    stock[:ingredient] = 0 if stock[:ingredient].nil?
+  end
+
 end
