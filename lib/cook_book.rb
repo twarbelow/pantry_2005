@@ -29,8 +29,12 @@ class CookBook
   end
 
   def summary
+    require 'pry'; binding.pry
     # returns array of hashes
-    # each hash is {name => "name", details => {ingredient1 => name, amount => "amount unit"}, {ingredient2 => "name", amount => "amount unit"}}
+    # each hash is
+    # {name => "name", details => {ingredient1 => name,
+    # amount => "amount unit"}, {ingredient2 => "name",
+    # amount => "amount unit"}}
   end
 
   private
