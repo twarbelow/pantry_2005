@@ -46,11 +46,10 @@ class CookBookTest < MiniTest::Test
   end
 
   def test_it_has_date
-    assert_equal "06-03-2020", @cookbook.date
+    assert_equal Date.today.strftime("%m-%d-%Y"), @cookbook.date
   end
 
   def test_it_has_summary
-    skip
     @recipe1.add_ingredient(@ingredient1, 2)
     @recipe1.add_ingredient(@ingredient2, 8)
     ingredient4 = Ingredient.new({name: "Bun", unit: "g", calories: 75})
