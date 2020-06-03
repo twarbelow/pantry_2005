@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'filehere'
 require './lib/ingredient'
 require './lib/pantry'
 
@@ -11,5 +10,9 @@ class IngredientTest < Minitest::Test
 
   def test_it_has_a_name
     assert_equal "Cheese", @ingredient1.name
+  end
+
+  def test_it_has_a_unit
+    assert_equal "oz", @ingredient1.unit
   end
 end
