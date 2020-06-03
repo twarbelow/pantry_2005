@@ -45,4 +45,26 @@ class CookBookTest < MiniTest::Test
     assert_equal @recipe2, @cookbook.highest_calorie_meal
   end
 
+  def test_it_has_summary
+    @recipe1.add_ingredient(@ingredient1, 2)
+    @recipe1.add_ingredient(@ingredient2, 8)
+    ingredient4 = Ingredient.new({name: "Bun", unit: "g", calories: 75})
+    recipe2 = Recipe.new("Burger")
+    recipe2.add_ingredient(@ingredient3, 4)
+    recipe2.add_ingredient(ingredient4, 100)
+    @cookbook.add_recipe(@recipe1)
+    @cookbook.add_recipe(@recipe2)
+
+    assert_equal ([{:name=>"Mac and Cheese",
+      :details=>{:ingredients=>[{:ingredient=>"Macaroni",
+      :amount=>"8 oz"},
+      {:ingredient=>"Cheese", :amount=>"2 C"}],
+      :total_calories=>440}}, {:name=>"Burger",
+      :details=>{:ingredients=>[{:ingredient=>"Ground Beef",
+      :amount=>"4 oz"},
+      {:ingredient=>"Bun", :amount=>"100 g"}],
+      :total_calories=>500}}]),
+      @cookbook.summary
+  end
+
 end
