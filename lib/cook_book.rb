@@ -29,12 +29,17 @@ class CookBook
   end
 
   def summary
+    names = recipes.map {|recipe| recipe.name}
+    details = recipes.map {|recipe| recipe.details}
+      # details should be a recipe method, not a cook_book method
+
+
     require 'pry'; binding.pry
     # returns array of hashes
     # each hash is
-    # {name => "name", details => {ingredient1 => name,
-    # amount => "amount unit"}, {ingredient2 => "name",
-    # amount => "amount unit"}}
+    # {:name => "name", details => {:ingredient1 => "name",
+    # :amount => "amount unit"}, {:ingredient2 => "name",
+    # :amount => "amount unit"}}
   end
 
   private
