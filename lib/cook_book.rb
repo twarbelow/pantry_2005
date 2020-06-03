@@ -19,6 +19,11 @@ class CookBook
     recipes.max_by {|recipe| recipe.total_calories}
   end
 
+  def summary
+    # returns array of hashes
+    # each hash is {name => "name", details => {ingredient1 => name, amount => "amount unit"}, {ingredient2 => "name", amount => "amount unit"}}
+  end
+
   private
   attr_writer :recipes
 end
